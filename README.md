@@ -4,6 +4,7 @@ Telegram bot to record all foods over a period of time (a day, a week, a month..
 
 ## Requirements
 * Docker
+
 If you don't want to use Docker:
 * Python3
 * Virtualenv, Pipenv, or any tool to create isolated Python environment
