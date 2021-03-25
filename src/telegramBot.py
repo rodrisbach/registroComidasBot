@@ -5,11 +5,11 @@ import os
 def main():
     TOKEN = os.getenv('TOKEN')
     updater = Updater(token=TOKEN, use_context=True)
-    updater.dispatcher.add_handler(CommandHandler('start',start))
-    updater.dispatcher.add_handler(CallbackQueryHandler(button))
+    updater.dispatcher.add_handler(CommandHandler('start',showDays))
+    updater.dispatcher.add_handler(CallbackQueryHandler(chooseDay))
     updater.start_polling()
 
-def start(update, context):
+def showDays(update, context):
     keyboard = [
         [
             InlineKeyboardButton("Lunes", callback_data="LU"),
@@ -24,7 +24,7 @@ def start(update, context):
     reply_markup = InlineKeyboardMarkup(keyboard)
     update.message.reply_text('Please choose:', reply_markup=reply_markup)
 
-def button(update, context):
+def chooseDay(update, context):
     days = {
             "LU": "Lunes",
             "MA": "Martes",
